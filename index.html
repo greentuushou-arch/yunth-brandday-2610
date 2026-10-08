@@ -457,7 +457,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
     <ul>
       <li><b>ポイント20倍の対象期間は、10月20日(火)0:00〜10月21日(水)23:59のご注文分です。</b></li>
       <li>シートマスク1袋〜3袋、Christmas商品（ホリデーコレクション2026）、その他ギフト商品はポイント20倍の対象外です。</li>
-      <li>生VCシートマスク1枚のセット<sup>※3</sup>は、対象の美容液（生VC美白<sup>※1</sup>美容液＊・生VA美容液＊・生AZ美容液・生PDRN<sup>※2</sup>美容液）が対象です。</li>
+      <li>生VCシートマスク1枚のセット<sup>※3</sup>は、対象の美容液（生VC美白<sup>※1</sup>美容液<sup>＊</sup>・生VA美容液<sup>＊</sup>・生AZ美容液・生PDRN<sup>※2</sup>美容液）が対象です。</li>
       <li>ポイントの付与時期・上限は楽天市場のルールに準じます。</li>
       <li>画像はイメージです。価格は掲載時点のものです。最新の情報は各商品ページをご確認ください。</li>
     </ul>
@@ -479,8 +479,8 @@ const ITEM = c => `https://item.rakuten.co.jp/yunth/${c}/`;
 
 /* 美容液（W特典対象） */
 const SERUMS = [
-  {code:"10000000", img:"p-serum-intro.jpg", tag:"VC", c:"var(--vc)", c2:"#d4566f", name:"生VC美白<sup>※1</sup>美容液＊", vol:"1ml×28包", price:"3,960"},
-  {code:"yb-116-001", img:"p-serum-va.jpg", tag:"VA", c:"var(--va)", c2:"#b47643", name:"生VA美容液＊", vol:"1ml×28包", price:"4,950"},
+  {code:"10000000", img:"p-serum-intro.jpg", tag:"VC", c:"var(--vc)", c2:"#d4566f", name:"生VC美白<sup>※1</sup>美容液<sup>＊</sup>", vol:"1ml×28包", price:"3,960"},
+  {code:"yb-116-001", img:"p-serum-va.jpg", tag:"VA", c:"var(--va)", c2:"#b47643", name:"生VA美容液<sup>＊</sup>", vol:"1ml×28包", price:"4,950"},
   {code:"yb-125-001", img:"p-serum-az.jpg", tag:"AZ", c:"var(--az)", c2:"#3a96a4", name:"生AZ美容液", vol:"1g×28包", price:"3,960"},
   {code:"yb-126-001", img:"p-serum-pdrn.jpg", tag:"PDRN<sup>※2</sup>", c:"var(--pdrn)", c2:"#7b8190", name:"生PDRN<sup>※2</sup>美容液", vol:"1ml×28包", price:"3,960"},
 ];
@@ -490,9 +490,9 @@ const GOODS = {
   skincare:[
     {code:"yb-120-001", name:"フュージョンクレンジング 120ml", price:"3,289"},
     {code:"yb-115-001", name:"生VCホワイトクリアフォーム 120g", price:"3,960"},
-    {code:"111-01", name:"生VC美白<sup>※1</sup>化粧水＊ 120ml", price:"3,960"},
+    {code:"111-01", name:"生VC美白<sup>※1</sup>化粧水<sup>＊</sup> 120ml", price:"3,960"},
     {code:"yb-117-001", name:"生VCホワイト乳液 75ml", price:"3,960"},
-    {code:"10000007", name:"生VC美白<sup>※1</sup>クリーム＊ 30g", price:"3,960"},
+    {code:"10000007", name:"生VC美白<sup>※1</sup>クリーム<sup>＊</sup> 30g", price:"3,960"},
   ],
   mask:[
     {code:"ys-r129", name:"ピュアマスク Pure Mask 7枚入り（4袋・8袋セット）", price:"6,820"},
