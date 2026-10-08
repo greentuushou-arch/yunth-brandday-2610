@@ -41,7 +41,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
 .fv-date .d em{font-style:normal;font-size:.42em;letter-spacing:.14em;margin-left:.3em;vertical-align:.35em}
 .fv-date .d span{font-size:.5em;letter-spacing:.06em;margin-left:.3em}
 .fv-date i{width:34px;height:1px;background:var(--ink)}
-.fv-note{margin-top:14px}
+.fv-note{order:2;margin:0;padding:8px 20px;background:#fff;text-align:right}
 .fv-point{display:flex;align-items:flex-end;gap:22px;border-top:1px solid var(--ink);padding-top:22px}
 .fv-point .lbl{font-weight:700;font-size:15px;line-height:1.7;letter-spacing:.12em;padding-bottom:16px}
 .fv-point .lbl b{display:block;font-size:20px}
@@ -260,7 +260,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .fv-title .l1,.fv-title .l2{font-size:104px}
   .fv-date{margin-top:28px;gap:14px}
   .fv-date .d{font-size:32px}
-  .fv-note{grid-column:1/-1;margin-top:8px}
+  .fv-note{padding:8px 48px}
   .strips{order:2;margin-top:36px}
   .fv-point{order:3;margin:0;padding:26px 48px 30px;border-top:0;background:var(--ink);color:#fff;gap:26px;justify-content:center}
   .fv-point .lbl{font-size:16px;padding-bottom:14px}
@@ -342,7 +342,6 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
         <p class="d">10.20<em>TUE</em><span>0:00</span></p><i></i>
         <p class="d">10.21<em>WED</em><span>23:59</span></p>
       </div>
-      <p class="note fv-note">※PDRN：DNA-Na(保湿)</p>
     </div>
     <div class="fv-point">
       <p class="lbl">対象商品<b>ポイント</b></p>
@@ -355,6 +354,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
     <figure class="strip" style="--c:var(--az)"><div class="im"><img src="images/scene-azelaic.jpg" alt="生AZ美容液" style="object-position:48% 50%"></div><figcaption><b>AZ</b></figcaption></figure>
     <figure class="strip" style="--c:var(--pdrn)"><div class="im"><img src="images/scene-pdrn.jpg" alt="生PDRN美容液" style="object-position:50% 50%"></div><figcaption><b>PDRN<sup>※</sup></b></figcaption></figure>
   </div>
+  <p class="note fv-note">※PDRN：DNA-Na(保湿)</p>
 </header>
 
 <!-- ===== 期間・タイマー ===== -->
