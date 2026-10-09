@@ -42,11 +42,6 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
 .fv-date .d span{font-size:.5em;letter-spacing:.06em;margin-left:.3em}
 .fv-date i{width:34px;height:1px;background:var(--ink)}
 .fv-note{order:2;margin:0;padding:8px 20px;background:#fff;text-align:right}
-.fv-point{display:flex;align-items:flex-end;gap:22px;border-top:1px solid var(--ink);padding-top:22px}
-.fv-point .lbl{font-weight:700;font-size:15px;line-height:1.7;letter-spacing:.12em;padding-bottom:16px}
-.fv-point .lbl b{display:block;font-size:20px}
-.fv-point .num{font-family:var(--en);font-weight:600;font-size:clamp(116px,10.5vw,168px);line-height:.8;color:var(--red);letter-spacing:-.02em}
-.fv-point .num small{font-family:var(--sans);font-weight:900;font-size:.3em;letter-spacing:0;margin-left:.08em;color:var(--red)}
 /* 美容液4色のストリップ */
 
 /* 美容液4色：正方形で商品全体を見せる */
@@ -59,14 +54,31 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
 .strip figcaption b{font-weight:600;font-size:20px;letter-spacing:.06em}
 
 /* ---------- 期間バー ---------- */
-.bar{background:var(--ink);color:#fff}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px;flex-wrap:wrap;padding:14px 0}
-.bar p{font-weight:700;letter-spacing:.12em}
-.bar p span{font-family:var(--en);font-weight:500;font-size:18px;letter-spacing:.08em;margin:0 .2em}
-.timer{display:flex;align-items:baseline;gap:10px;font-family:var(--en);font-weight:500}
-.timer .t-lbl{font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.12em;color:#ffb3bf}
-.timer .t-num{font-size:30px;letter-spacing:.06em}
-.timer .t-num small{font-family:var(--sans);font-size:12px;margin:0 .35em 0 .15em}
+
+
+/* ---------- 期間・カウントダウン ---------- */
+.bar{background:var(--ink);color:#fff;text-align:center}
+.bar .wrap{display:flex;flex-direction:column;align-items:center;padding:40px 0 42px}
+.b-lbl{display:inline-block;font-weight:700;font-size:15px;letter-spacing:.3em;padding:2px 0 2px .3em;border-bottom:1px solid rgba(255,255,255,.5)}
+.b-date{margin-top:14px;font-weight:700;font-size:20px;letter-spacing:.06em;line-height:1.5}
+.b-date b{font-family:var(--en);font-weight:500;font-size:36px;letter-spacing:.03em;margin:0 .14em}
+.b-date i{font-style:normal;margin:0 .3em}
+.nw{white-space:nowrap}
+.timer{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:4px 16px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.22);min-width:min(560px,100%);font-family:var(--en);font-weight:500}
+.timer .t-lbl{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:.14em;color:#ffb3bf}
+.timer .t-num{font-size:44px;letter-spacing:.04em;color:#ff7d90;line-height:1.2}
+.timer .t-num small{font-family:var(--sans);font-weight:700;font-size:15px;margin:0 .4em 0 .12em;color:#fff}
+@media (max-width:767px){
+  .bar .wrap{padding:30px 0 32px}
+  .b-lbl{font-size:13px}
+  .b-date{display:flex;flex-direction:column;align-items:center;font-size:16px}
+  .b-date b{font-size:28px}
+  .b-date i{line-height:1;margin:2px 0}
+  .timer{flex-direction:column;align-items:center;margin-top:18px;padding-top:18px}
+  .timer .t-lbl{font-size:14px}
+  .timer .t-num{font-size:34px}
+  .timer .t-num small{font-size:12px}
+}
 
 /* ---------- POINT 20 ---------- */
 .point{padding:140px 0 120px;background:var(--cream)}
@@ -85,8 +97,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
 
 /* ---------- W特典 ---------- */
 .gift{position:relative;background:var(--blush);padding:130px 0 120px;overflow:hidden}
-.gift-head{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:end;margin-bottom:64px}
-.gift-head .no{font-family:var(--en);font-weight:600;font-size:clamp(90px,10vw,150px);line-height:.8;color:var(--red)}
+.gift-head{margin-bottom:64px}
 .gift-head h2{font-weight:800;font-size:clamp(30px,3.4vw,48px);line-height:1.45;letter-spacing:.08em}
 .gift-head h2 small{display:block;font-size:15px;font-weight:700;letter-spacing:.16em;color:var(--red);margin-bottom:12px}
 .gift-body{display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;gap:28px}
@@ -181,9 +192,8 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .wrap{width:calc(100% - 40px)}
   .fv{display:flex;flex-direction:column;min-height:0}
   .fv-copy{display:contents}
-  .fv-copy > div:not(.fv-point){order:1;padding:0 20px}
   .fv-logo{order:0;width:84px;margin:22px 20px 0}
-  .fv-point{order:3}
+  .fv-copy > div{order:1;padding:0 20px}
   .strips{order:2;grid-template-columns:1fr 1fr;margin-top:26px}
   .strip figcaption{padding:8px 12px;font-size:10px;letter-spacing:.14em}
   .strip figcaption b{font-size:17px}
@@ -193,15 +203,6 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .fv-date{margin-top:20px;gap:12px}
   .fv-date .d{font-size:24px}
   .fv-date i{width:20px}
-  .fv-point{margin:0;padding:18px 20px 22px;border-top:0;background:var(--ink);color:#fff;gap:14px;justify-content:center}
-  .fv-point .lbl{font-size:13px;padding-bottom:8px}
-  .fv-point .lbl b{font-size:17px}
-  .fv-point .num{font-size:30vw;color:#ff5d74}
-  .fv-point .num small{color:#ff5d74}
-  .bar .wrap{flex-direction:column;align-items:flex-start;gap:6px;min-height:0;padding:18px 0}
-  .bar p{font-size:14px}
-  .bar p span{font-size:16px}
-  .timer .t-num{font-size:24px}
   .point{padding:84px 0 80px}
   .point-grid{grid-template-columns:1fr;gap:30px}
   .big20{font-size:58vw;text-align:center}
@@ -211,8 +212,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .term dd{font-size:15px}
   .term dd span{font-size:19px}
   .gift{padding:84px 0 80px}
-  .gift-head{grid-template-columns:1fr;gap:14px;margin-bottom:36px}
-  .gift-head .no{font-size:76px}
+  .gift-head{margin-bottom:36px}
   .gift-head h2{font-size:24px}
   .gift-head h2 small{font-size:13px}
   .gift-body{grid-template-columns:1fr;gap:22px}
@@ -255,7 +255,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .fv{display:flex;flex-direction:column;min-height:0}
   .fv-copy{display:contents}
   .fv-logo{order:0;width:96px;margin:36px 48px 0}
-  .fv-copy > div:not(.fv-point){order:1;padding:0 48px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:0 24px}
+  .fv-copy > div{order:1;padding:0 48px}
   .fv-title{margin-top:44px;grid-column:1/-1}
   .fv-title small{margin-bottom:20px}
   .fv-title .l1,.fv-title .l2{font-size:104px}
@@ -263,15 +263,6 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .fv-date .d{font-size:32px}
   .fv-note{padding:8px 48px}
   .strips{order:2;margin-top:36px}
-  .fv-point{order:3;margin:0;padding:26px 48px 30px;border-top:0;background:var(--ink);color:#fff;gap:26px;justify-content:center}
-  .fv-point .lbl{font-size:16px;padding-bottom:14px}
-  .fv-point .lbl b{font-size:22px}
-  .fv-point .num{font-size:170px;color:#ff5d74}
-  .fv-point .num small{color:#ff5d74}
-  .bar .wrap{min-height:0;padding:20px 0;gap:6px 20px}
-  .bar p{font-size:15px}
-  .bar p span{font-size:17px}
-  .timer .t-num{font-size:26px}
   /* POINT */
   .point{padding:110px 0 100px}
   .point-grid{grid-template-columns:auto 1fr;gap:44px}
@@ -283,8 +274,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .term dd span{font-size:20px}
   /* セット */
   .gift{padding:110px 0 100px}
-  .gift-head{gap:28px;margin-bottom:48px}
-  .gift-head .no{font-size:112px}
+  .gift-head{margin-bottom:48px}
   .gift-head h2{font-size:34px}
   .gift-body{grid-template-columns:1fr 40px 1fr;gap:18px}
   .plus{width:40px;height:40px}
@@ -344,10 +334,6 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
         <p class="d">10.21<em>WED</em><span>23:59</span></p>
       </div>
     </div>
-    <div class="fv-point">
-      <p class="lbl">対象商品<b>ポイント</b></p>
-      <p class="num">20<small>倍</small></p>
-    </div>
   </div>
   <div class="strips" id="strips">
     <figure class="strip on" style="--c:var(--vc)"><div class="im"><img src="images/serum-vc.jpg?v=2" alt="生VC美白美容液"></div><figcaption><b>VC</b></figcaption></figure>
@@ -361,7 +347,8 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
 <!-- ===== 期間・タイマー ===== -->
 <div class="bar">
   <div class="wrap">
-    <p>開催期間<br class="sp"><span style="white-space:nowrap"><span>10/20</span>(火)<span>0:00</span>〜</span><span style="white-space:nowrap"><span>10/21</span>(水)<span>23:59</span></span></p>
+    <p class="b-lbl">開催期間</p>
+    <p class="b-date"><span class="nw"><b>10/20</b>(火)<b>0:00</b></span><i>〜</i><span class="nw"><b>10/21</b>(水)<b>23:59</b></span></p>
     <div class="timer" id="timer" aria-live="polite"></div>
   </div>
 </div>
@@ -371,8 +358,7 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   <div class="wrap point-grid">
     <p class="big20 rv" aria-label="ポイント20倍">20<span class="bai">倍</span></p>
     <div class="point-copy rv">
-      <p class="eyebrow" style="color:var(--red)">Special 01</p>
-      <h2 style="margin-top:14px">2日間<br>対象商品が<em style="white-space:nowrap">ポイント20倍</em>。</h2>
+      <h2>2日間<br>対象商品が<em style="white-space:nowrap">ポイント20倍</em>。</h2>
       <p class="lead">美容液もスキンケアも、<br>まとめてそろえるなら今。</p>
       <dl class="term">
         <dt>PERIOD</dt>
@@ -387,7 +373,6 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
 <section class="gift" id="gift">
   <div class="wrap">
     <div class="gift-head rv">
-      <p class="no">02</p>
       <h2>美容液に<br><span style="white-space:nowrap">生VCシートマスク</span><br class="sp"><span style="white-space:nowrap">1枚をセット<sup>※3</sup></span></h2>
     </div>
     <div class="gift-body">
