@@ -313,6 +313,22 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
   .side.l{left:calc((100vw - 800px)/4);transform:translate(-50%,-50%) rotate(-90deg)}
   .side.r{right:calc((100vw - 800px)/4);transform:translate(50%,-50%) rotate(90deg);font-family:var(--en);font-weight:500;font-size:22px;letter-spacing:.3em}
 }
+
+/* 美容液一覧：VC・PDRNは大きく1枚ずつ、AZ・VAは横並び */
+.serums{grid-template-columns:1fr 1fr}
+.serum.big{grid-column:1/-1;grid-template-columns:56% 1fr;gap:32px;align-items:center}
+.serum.big h3{font-size:24px}
+.serum.big .price b{font-size:32px}
+.serum.sm{grid-template-columns:1fr;gap:16px;align-items:start}
+@media (max-width:767px){
+  .serums{gap:44px 14px}
+  .serum.big{grid-template-columns:1fr;gap:16px}
+  .serum.big h3{font-size:20px}
+  .serum.sm h3{font-size:15px}
+  .serum.sm .price b{font-size:21px}
+  .serum.sm .perks span{font-size:10.5px;padding:2px 6px}
+  .serum.sm .btn{font-size:13px;padding:0 10px}
+}
 @media (prefers-reduced-motion:reduce){.strip,.strip img,.rv{transition:none}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -388,20 +404,6 @@ sup{font-size:clamp(8px,.4em,12px);font-weight:500;vertical-align:super;line-hei
     <p class="note">※1 メラニンの生成を抑え、しみ・そばかすを防ぐ　※2 DNA-Na(保湿)　※3【公式】Yunth Store楽天市場店でご購入に限る。<br>＊医薬部外品 薬用ホワイトエッセンスPVC α／薬用VAセラム</p>
   </div>
 </section>
-
-<!-- ===== MENU ===== -->
-<nav class="menu">
-  <div class="wrap">
-    <h2 class="rv">Item Index</h2>
-    <p class="rv">ポイント20倍の対象アイテム</p>
-    <div class="menu-list rv">
-      <a href="#serum"><span class="n">01</span><b>美容液</b><span>全4種</span><span class="arr">VIEW</span></a>
-      <a href="#skincare"><span class="n">02</span><b>スキンケア</b><span>洗顔・化粧水・乳液・クリーム</span><span class="arr">VIEW</span></a>
-      <a href="#mask"><span class="n">03</span><b>マスク・特別ケア</b><span>シートマスク・アイ・リップ</span><span class="arr">VIEW</span></a>
-      <a href="#more"><span class="n">04</span><b>UV・メイクほか</b><span>UV・ファンデ・美顔器ほか</span><span class="arr">VIEW</span></a>
-    </div>
-  </div>
-</nav>
 
 <!-- ===== 商品 ===== -->
 <section class="items" id="serum">
@@ -501,8 +503,9 @@ const GOODS = {
 document.getElementById("serum4").innerHTML = SERUMS.map(s =>
   `<a href="${ITEM(s.code)}" style="--c:${s.c}"><i></i><img src="images/${s.img}" alt="" loading="lazy"><b>${s.name}</b></a>`).join("");
 
-document.getElementById("serums").innerHTML = SERUMS.map(s => `
-  <article class="serum rv" style="--c:${s.c};--c2:${s.c2}">
+const SERUM_LAYOUT = [["VC","big"],["PDRN","big"],["AZ","sm"],["VA","sm"]];
+document.getElementById("serums").innerHTML = SERUM_LAYOUT.map(([tag, size]) => SERUMS.find(x => x.tag.startsWith(tag))).map((s, k) => `
+  <article class="serum ${SERUM_LAYOUT[k][1]} rv" style="--c:${s.c};--c2:${s.c2}">
     <a class="ph" href="${ITEM(s.code)}"><img src="images/${s.img}" alt="" loading="lazy"></a>
     <div>
       <p class="tag">${s.tag}</p>
